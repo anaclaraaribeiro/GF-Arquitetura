@@ -259,7 +259,7 @@ html.js .wipe.on img{transform:scale(1)}
 .pq{display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;align-items:center}
 .pq-media{grid-column:1 / 6;position:relative}
 .pq-media .big{overflow:hidden;aspect-ratio:4/5}
-.pq-media .big img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) sepia(.12)}
+.pq-media .big img{width:100%;height:100%;object-fit:cover;}
 .pq-media .small{position:absolute;right:-14%;bottom:-8%;width:52%;background:var(--cream);padding:8px;margin:0;box-shadow:0 30px 60px -40px rgba(43,30,28,.5)}
 .pq-media .small div{overflow:hidden;aspect-ratio:4/3}
 .pq-media .small img{width:100%;height:100%;object-fit:cover}
@@ -275,7 +275,7 @@ html.js .wipe.on img{transform:scale(1)}
 .fc-ring b{font-weight:300;font-size:22px;line-height:1;color:var(--rose)}
 .fc-img{grid-column:4 / 13;grid-row:1;margin:4vh 0 0}
 .fc-img>div{overflow:hidden;aspect-ratio:21/8;background:var(--wine-d)}
-.fc-img img{width:100%;height:100%;object-fit:cover;object-position:50% 38%}
+.fc-img img{width:100%;height:100%;object-fit:cover;object-position:50% 24%}
 .fc-hl{grid-column:1 / 10;grid-row:2;align-self:start;position:relative;z-index:2;margin-top:-.5em;font-size:clamp(84px,11.4vw,230px);line-height:.86;letter-spacing:-.04em}
 .fc-hl a{display:block}
 .fc-hl em{color:var(--rose)}
@@ -457,7 +457,7 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
         <span class="ln"><span style="--d:.15s"><em>Arquitetura</em> que</span></span>
         <span class="ln"><span style="--d:.3s">acolhe quem você é.</span></span>
       </h1>
-      <figure class="hero-inset"><img id="heroInset" src="assets/img/detalhe.jpg" alt="Abajur de cerâmica clara sobre aparador de madeira"></figure>
+      <figure class="hero-inset"><img id="heroInset" src="assets/img/detalhe.jpg" alt="Cabeceira em forma de flor e papel de parede floral num quarto infantil"></figure>
     </div>
     <div class="hero-bot">
       <p class="hero-sub fade" style="--d:.9s">Casas e espaços comerciais desenhados a partir da sua rotina e da luz de cada ambiente.</p>
@@ -467,14 +467,14 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
     </div>
   </div>
   <div class="hero-media" id="heroMedia" data-cur="ver">
-    <img src="assets/img/hero.jpg" alt="Sala de estar em tons de linho, com ripado claro, mesa lateral e galhos verdes num vaso de vidro" fetchpriority="high">
+    <img src="assets/img/hero.jpg" alt="Suíte com janela ampla, cortinas claras e luz natural sobre a cama" fetchpriority="high">
   </div>
 </section>
 
 <!-- ESTÚDIO -->
 <section class="st" id="estudio" data-c="0" aria-label="O estúdio">
   <div class="st-pin" data-cur="ver">
-    <img id="stImg" src="assets/img/arco.jpg" alt="Passagem em arco num ambiente claro, com sofá escuro e vaso com galhos secos" loading="lazy">
+    <img id="stImg" src="assets/img/arco.jpg" alt="Estúdio de estética claro com poltronas curvas e prateleiras iluminadas" loading="lazy">
   </div>
   <div class="wrap">
     <div class="ch" data-ch="0">
@@ -525,7 +525,7 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
         <div class="mcap"><h3>Cozinha <em>Âmbar</em></h3><p>Cristaleira iluminada, marcenaria em tom fendi e uma ilha ampla para receber.</p></div></figure>
       <figure data-cur="ver"><div class="ph wipe"><img src="assets/img/suite.jpg" alt="Suíte com cabeceira em tom terroso, quadros de montanhas e roupa de cama clara" loading="lazy"></div>
         <div class="mcap"><h3>Suíte <em>Terra</em></h3><p>Cabeceira em tons de terra, luz indireta e roupa de cama clara para descansar de verdade.</p></div></figure>
-      <figure data-cur="ver"><div class="ph wipe"><img src="assets/img/estetica.jpg" alt="Sala de estética clara com poltronas curvas, maca branca e frisos dourados" loading="lazy"></div>
+      <figure data-cur="ver"><div class="ph wipe"><img src="assets/img/estetica.jpg" alt="Sala de atendimento clara com poltronas curvas, espelho oval e painel de madeira" loading="lazy"></div>
         <div class="mcap"><h3>Estúdio de <em>Estética</em></h3><p>Um espaço claro e acolhedor, com poltronas curvas e detalhes dourados para receber clientes.</p></div></figure>
       <figure data-cur="ver"><div class="ph wipe"><img src="assets/img/banho.jpg" alt="Banheiro com ripado claro, espelho com moldura dourada e metais dourados" loading="lazy"></div>
         <div class="mcap"><h3>Banho <em>Dourado</em></h3><p>Ripado claro, metais dourados e um espelho iluminado que deixa a rotina mais leve.</p></div></figure>
@@ -564,7 +564,7 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
   </div></div>
   <p class="sr">Luz natural, madeira, linho, texturas, conforto e memória.</p>
   <div class="band" data-cur="ver">
-    <img id="bandImg" src="assets/img/faixa.jpg" alt="Sala ampla e clara com poltronas de couro caramelo, mesa de madeira e janelas para a mata" loading="lazy">
+    <img id="bandImg" src="assets/img/faixa.jpg" alt="Gislaine Fátima sentada num pufe preto, em estúdio claro" loading="lazy">
   </div>
 </section>
 
@@ -572,7 +572,7 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
 <section class="pqs wrap" aria-label="Nas palavras do estúdio">
   <div class="pq">
     <div class="pq-media">
-      <div class="big wipe" data-cur="ver"><img src="assets/img/sombra.jpg" alt="Luz do sol desenhando uma janela sobre tecido de linho" loading="lazy"></div>
+      <div class="big wipe" data-cur="ver"><img src="assets/img/sombra.jpg" alt="Gislaine Fátima sentada numa poltrona de couro" loading="lazy"></div>
       <figure class="small rv" style="--d:.3s"><div><img src="assets/img/cartoes.png" alt="Cartões do estúdio GF com o monograma em dourado, numa bandeja de metal" loading="lazy"></div></figure>
     </div>
     <div class="pq-body">
@@ -588,7 +588,7 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
 <footer class="ft" id="contato" data-dark>
   <div class="fc wrap">
     <div class="fc-ring rv" aria-hidden="true"><span class="mono">Atendimento<br>presencial<br>e online</span><b>+</b></div>
-    <figure class="fc-img" data-cur="ver"><div class="wipe"><img src="assets/img/cortina.jpg" alt="Cortina de linho, luminária acesa e nichos de madeira iluminados" loading="lazy"></div></figure>
+    <figure class="fc-img" data-cur="ver"><div class="wipe"><img src="assets/img/cortina.jpg" alt="Retrato de Gislaine Fátima" loading="lazy"></div></figure>
     <h2 class="fc-hl d-hl rv"><a href="https://w.app/gfarquiteturaeinteriores" target="_blank" rel="noopener"><span class="ln"><span>Vamos</span></span><span class="ln"><span><em>conversar</em> <svg class="fc-ar" viewBox="0 0 120 40" aria-hidden="true"><path d="M2 20 H116 M98 4 L116 20 L98 36"/></svg></span></span></a></h2>
     <div class="fc-side rv" style="--d:.2s">
       <p>Conte um pouco sobre o seu projeto e agende uma primeira conversa. Atendimento em Guarapuava e região, e também online.</p>
