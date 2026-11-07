@@ -382,6 +382,39 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
   .cur{display:none}
 }
 @media (hover:none),(pointer:coarse){.cur{display:none}}
+/* ---------- phones, second pass ---------- */
+@media (max-width: 900px){
+  .hero-center{width:100%;--hlfs:clamp(40px,10.8vw,66px)}
+  .hero-hl{width:100%}
+  .hero-inset{width:58vw;max-width:320px}
+  .hero-bot{align-items:stretch}
+  .hero-act{align-items:stretch;width:100%}
+  .hero-act .btn,.who .btn,.mm-foot .btn{width:100%;justify-content:center;align-self:stretch}
+  .who{width:100%}
+  .st-pin{display:none}
+
+  .px{display:flex;flex-direction:column;padding-bottom:10svh}
+  .px-left{display:flex;position:sticky;top:calc(var(--hh) + 18px + 46svh + 12px);z-index:5;height:auto;background:var(--cream);padding:12px 0 16px;justify-content:flex-start}
+  .px-top{color:var(--ink-2)}
+  .px-stage{flex:none;height:230px;margin-top:10px}
+  .px-it{gap:16px}
+  .px-name{font-size:clamp(42px,12vw,60px)}
+  .px-meta{font-size:13px;gap:6px 18px;padding-top:12px}
+  .px-right{display:block;padding:0}
+  .px-right figure{position:sticky;top:calc(var(--hh) + 18px);height:46svh;margin:0 0 36svh;background:var(--cream);box-shadow:0 -20px 40px -22px rgba(43,30,28,.5)}
+  .px-right figure:last-child{margin-bottom:0}
+  .px-right .ph{height:100%}
+  .px-right img{height:100%;max-height:none}
+  .px-right .mcap{display:none}
+
+  .svp{flex-direction:row;height:auto;gap:12px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;margin-inline:calc(-1 * var(--gut));padding-inline:var(--gut);scroll-padding-inline:var(--gut)}
+  .svp::-webkit-scrollbar{display:none}
+  .sp,.sp.is-on{flex:0 0 82vw;height:min(560px,68svh);scroll-snap-align:start}
+  .sp img,.sp:not(.is-on) img,.sp.is-on img{filter:none;transform:none}
+  .sp-v{display:none}
+  .sp-body,.sp.is-on .sp-body{opacity:1;transform:none;left:20px;right:20px;bottom:22px;width:auto;gap:12px}
+  .sp-body h3{font-size:clamp(34px,10vw,46px)}
+}
 </style>
 </head>
 <body>
@@ -692,6 +725,7 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
       if(b.top<vh&&b.bottom>0){ var pb=(vh-b.top)/(vh+b.height); bandImg.style.transform='translate3d(0,'+((pb-.5)*-16).toFixed(2)+'%,0)' }
     }
     // projects: the photo nearest the middle of the screen drives the pinned index
+    if(!isDesk()){ var lim=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--hh'))+22, act=0; pxFigs.forEach(function(f,i){ if(f.getBoundingClientRect().top<=lim) act=i }); setPx(act) }
     if(isDesk()){ var best=0,bd=1e9; pxFigs.forEach(function(f,i){ var fr=f.getBoundingClientRect(); var d=Math.abs(fr.top+fr.height/2-vh/2); if(d<bd){bd=d;best=i} }); setPx(best) }
   }
   addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
