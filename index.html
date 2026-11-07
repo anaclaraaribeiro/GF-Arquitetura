@@ -393,16 +393,20 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
   .who{width:100%}
   .st-pin{display:none}
 
-  .px{display:flex;flex-direction:column;align-items:stretch;padding-bottom:10svh}
-  .px-right{width:100%}
-  .px-left{display:flex;align-self:stretch;width:100%;position:sticky;top:calc(var(--hh) + 18px + 46svh + 12px);z-index:5;height:auto;background:var(--cream);padding:12px 0 16px;justify-content:flex-start}
-  .px-top{color:var(--ink-2)}
-  .px-stage{flex:none;height:230px;margin-top:10px}
-  .px-it{gap:16px}
-  .px-name{font-size:clamp(42px,12vw,60px)}
-  .px-meta{font-size:13px;gap:6px 18px;padding-top:12px}
-  .px-right{display:block;padding:0}
-  .px-right figure{position:sticky;top:calc(var(--hh) + 18px);height:46svh;margin:0 0 36svh;background:var(--cream);box-shadow:0 -20px 40px -22px rgba(43,30,28,.5)}
+  .px{display:flex;flex-direction:column;align-items:stretch;padding-bottom:8svh}
+  .px-left{display:flex;align-self:stretch;width:100%;position:sticky;top:calc(var(--hh) + 18px);z-index:5;height:max(25svh,200px);background:var(--cream);padding:0;justify-content:flex-start;align-items:center;text-align:center}
+  .px-top{justify-content:center;color:var(--ink-2)}
+  .px-top>span:first-child{display:none}
+  .px-stage{flex:1;width:100%;margin-top:10px}
+  .px-it{justify-content:flex-start;align-items:center;gap:14px}
+  .px-name{font-size:clamp(40px,11.5vw,58px);white-space:nowrap}
+  .px-name .ln{display:inline-block}
+  .px-name .ln:first-child{margin-right:.2em}
+  .px-meta{display:block;max-width:32ch;margin:0 auto;border:0;padding:0;font-size:14.5px}
+  .px-meta>*:nth-child(-n+3){display:none}
+  .px-meta p{color:var(--ink-2)}
+  .px-right{display:block;width:100%;padding:0}
+  .px-right figure{position:sticky;top:calc(var(--hh) + 18px + max(25svh,200px) + 8px);height:48svh;margin:0 0 40svh;background:var(--cream);box-shadow:0 -22px 40px -24px rgba(43,30,28,.55)}
   .px-right figure:last-child{margin-bottom:0}
   .px-right .ph{height:100%}
   .px-right img{height:100%;max-height:none}
@@ -726,7 +730,7 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
       if(b.top<vh&&b.bottom>0){ var pb=(vh-b.top)/(vh+b.height); bandImg.style.transform='translate3d(0,'+((pb-.5)*-16).toFixed(2)+'%,0)' }
     }
     // projects: the photo nearest the middle of the screen drives the pinned index
-    if(!isDesk()){ var lim=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--hh'))+22, act=0; pxFigs.forEach(function(f,i){ if(f.getBoundingClientRect().top<=lim) act=i }); setPx(act) }
+    if(!isDesk()){ var lim=(pxFigs[0]?parseFloat(getComputedStyle(pxFigs[0]).top):0)+4, act=0; pxFigs.forEach(function(f,i){ if(f.getBoundingClientRect().top<=lim) act=i }); setPx(act) }
     if(isDesk()){ var best=0,bd=1e9; pxFigs.forEach(function(f,i){ var fr=f.getBoundingClientRect(); var d=Math.abs(fr.top+fr.height/2-vh/2); if(d<bd){bd=d;best=i} }); setPx(best) }
   }
   addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
