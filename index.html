@@ -768,7 +768,7 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
     if(c!==stC){ stC=c; st.dataset.c=c; ticks.forEach(function(t,i){t.classList.toggle('on',i===c)}); if(c===2) st.setAttribute('data-dark',''); else st.removeAttribute('data-dark') }
     if(words.length&&!RM){
       var r=mf.getBoundingClientRect(), p=clamp((vh*.95-r.top)/(vh*.5),0,1), n=words.length;
-      for(var k=0;k<n;k++){ words[k].style.setProperty('--o',(.65+.35*clamp(p*n*1.1-k,0,1)).toFixed(3)) }
+      for(var k=0;k<n;k++){ words[k].style.setProperty('--o',(.8+.2*clamp(p*n*1.1-k,0,1)).toFixed(3)) }
     }
     if(!RM){
       var s=st.getBoundingClientRect();
