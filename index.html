@@ -256,16 +256,17 @@ html.js .wipe.on img{transform:scale(1)}
 
 /* ---------- pull quote ---------- */
 .pqs{padding-block:clamp(100px,12vw,180px)}
-.pq{display:flex;justify-content:center;text-align:center}
+.pq{display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;align-items:center}
 .pq-media{grid-column:1 / 6;position:relative}
+.pq-media .big img{object-position:50% 50%}
 .pq-media .big{overflow:hidden;aspect-ratio:4/5}
 .pq-media .big img{width:100%;height:100%;object-fit:cover;}
 .pq-media .small{position:absolute;right:-14%;bottom:-8%;width:52%;background:var(--cream);padding:8px;margin:0;box-shadow:0 30px 60px -40px rgba(43,30,28,.5)}
 .pq-media .small div{overflow:hidden;aspect-ratio:4/3}
 .pq-media .small img{width:100%;height:100%;object-fit:cover}
-.pq-body{max-width:1000px;display:flex;flex-direction:column;align-items:center}
+.pq-body{grid-column:7 / 13}
 .pq-body .lbl::before{display:none}
-.pq-body blockquote{margin:0 0 30px;font-family:var(--f-disp);font-size:clamp(46px,6vw,112px);line-height:.98;letter-spacing:-.025em}
+.pq-body blockquote{margin:0 0 30px;font-family:var(--f-disp);font-size:clamp(46px,5.2vw,96px);line-height:.98;letter-spacing:-.025em}
 .pq-body blockquote em{color:var(--wine)}
 .pq-body .mono{color:var(--ink-2)}
 
@@ -361,6 +362,7 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
   .sp-body{width:auto;right:22px}
 
   .band{height:62svh}
+  .pq{display:flex;flex-direction:column;gap:56px;align-items:stretch}
 
 
 
@@ -456,7 +458,7 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
         <span class="ln"><span style="--d:.15s"><em>Arquitetura</em> que</span></span>
         <span class="ln"><span style="--d:.3s">acolhe quem você é.</span></span>
       </h1>
-      <figure class="hero-inset"><img id="heroInset" src="assets/img/detalhe.jpg" alt="Cabeceira em forma de flor e papel de parede floral num quarto infantil"></figure>
+      <figure class="hero-inset"><img id="heroInset" src="assets/img/detalhe.jpg" alt="Detalhe de banheiro com espelho iluminado e metais dourados"></figure>
     </div>
     <div class="hero-bot">
       <p class="hero-sub fade" style="--d:.9s">Casas e espaços comerciais desenhados a partir da sua rotina e da luz de cada ambiente.</p>
@@ -562,11 +564,15 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
     <span>luz natural<b>·</b></span><span>madeira<b>·</b></span><span>linho<b>·</b></span><span>texturas<b>·</b></span><span>conforto<b>·</b></span><span>memória<b>·</b></span>
   </div></div>
   <p class="sr">Luz natural, madeira, linho, texturas, conforto e memória.</p>
+  <div class="band" data-cur="ver">
+    <img id="bandImg" src="assets/img/faixa.jpg" alt="Parede com papel floral e cabeceira em forma de flor num quarto infantil" loading="lazy">
+  </div>
 </section>
 
 <!-- NAS PALAVRAS DO ESTÚDIO -->
 <section class="pqs wrap" aria-label="Nas palavras do estúdio">
   <div class="pq">
+    <div class="pq-media"><div class="big wipe" data-cur="ver"><img src="assets/img/sombra.jpg" alt="Suíte com cabeceira em tom terroso, quadros de montanhas e luz indireta" loading="lazy"></div></div>
     <div class="pq-body">
       <blockquote class="rv">Transformamos casas em lares e negócios em <em>experiências.</em></blockquote>
       <span class="mono">GF Arquitetura e Interiores</span>
