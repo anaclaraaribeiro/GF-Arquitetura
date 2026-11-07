@@ -419,6 +419,9 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
 /* ---------- phones, second pass ---------- */
 @media (max-width: 900px){
   .hero-center{width:100%;--hlfs:clamp(40px,10.8vw,66px)}
+  .pre.draw .arc{transition-duration:.6s}
+  html.js .hero-inset{transition:clip-path .8s var(--ease-io) .05s}
+  html.js .hero-inset img{transition:transform 1.2s var(--ease) .05s}
   .hero-hl{width:100%}
   .hero-inset{width:58vw;max-width:320px}
   .hero-bot{align-items:stretch}
@@ -707,10 +710,11 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
     $('#preSkip').addEventListener('click',skip);
     ['wheel','touchmove','keydown'].forEach(function(ev){addEventListener(ev,function(){if(!done)skip()},{once:true,passive:true})});
     requestAnimationFrame(function(){requestAnimationFrame(function(){pre.classList.add('draw')})});
-    var t0=performance.now(), D=1050;
+    var MOB=!isDesk(), T=MOB?{d:600,a:620,ad:300,b:900,bd:380,c:1150,k:1650}:{d:1050,a:1100,ad:420,b:1500,bd:560,c:2060,k:3080};
+    var t0=performance.now(), D=T.d;
     (function tick(now){ if(done)return; var p=Math.min(1,(now-t0)/D); var e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2; cnt.textContent=String(Math.round(e*100)).padStart(2,'0'); if(p<1)requestAnimationFrame(tick)})(t0);
-    later(function(){ var r=mark.getBoundingClientRect().width*.33; img.animate([{clipPath:'circle(0px at 50% 50%)'},{clipPath:'circle('+r+'px at 50% 50%)'}],{duration:420,easing:'cubic-bezier(.65,0,.35,1)',fill:'forwards'}); pre.classList.add('out-ui') },1100);
-    later(function(){ mark.style.opacity='0'; var R=Math.hypot(innerWidth,innerHeight)/2+20, r=mark.getBoundingClientRect().width*.33; img.animate([{clipPath:'circle('+r+'px at 50% 50%)'},{clipPath:'circle('+R+'px at 50% 50%)'}],{duration:560,easing:'cubic-bezier(.65,0,.35,1)',fill:'forwards'}) },1500);
+    later(function(){ var r=mark.getBoundingClientRect().width*.33; img.animate([{clipPath:'circle(0px at 50% 50%)'},{clipPath:'circle('+r+'px at 50% 50%)'}],{duration:T.ad,easing:'cubic-bezier(.65,0,.35,1)',fill:'forwards'}); pre.classList.add('out-ui') },T.a);
+    later(function(){ mark.style.opacity='0'; var R=Math.hypot(innerWidth,innerHeight)/2+20, r=mark.getBoundingClientRect().width*.33; img.animate([{clipPath:'circle('+r+'px at 50% 50%)'},{clipPath:'circle('+R+'px at 50% 50%)'}],{duration:T.bd,easing:'cubic-bezier(.65,0,.35,1)',fill:'forwards'}) },T.b);
     later(function(){
       if(isDesk()){
         var hm=$('#heroMedia').getBoundingClientRect(), W=document.documentElement.clientWidth, H=innerHeight;
@@ -719,10 +723,10 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
         var end='inset('+Math.max(0,hm.top)+'px '+Math.max(0,W-hm.right)+'px '+Math.max(0,H-hm.bottom)+'px '+Math.max(0,hm.left)+'px)';
         img.animate([{clipPath:'inset(0px 0px 0px 0px)'},{clipPath:end}],{duration:620,easing:'cubic-bezier(.65,0,.35,1)',fill:'forwards'});
         later(function(){ pre.style.transition='opacity .35s ease'; pre.style.opacity='0' },620);
-      } else { pre.style.transition='opacity .6s ease'; pre.style.opacity='0' }
+      } else { pre.style.transition='opacity .45s ease'; pre.style.opacity='0' }
       start();
-    },2060);
-    later(function(){done=true;killPre()},3080);
+    },T.c);
+    later(function(){done=true;killPre()},T.k);
   }
 
   /* header, menu, pill */
