@@ -393,7 +393,9 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
   .who{width:100%}
   .st-pin{display:none}
 
-  .px{display:flex;flex-direction:column;align-items:stretch;padding-bottom:8svh}
+  .px{display:flex;flex-direction:column;align-items:stretch;padding-bottom:0}
+  .px-right>.px-left{margin-bottom:calc(8px + 46svh + 40svh)}
+  .px-right>.px-left+figure{margin-top:calc(-46svh - 40svh)}
   .px-left{--pxt:200px;--pxi:46svh;--pxtop:calc(var(--hh) + (100svh - var(--hh) - var(--pxt) - 8px - var(--pxi)) / 2);display:flex;align-self:stretch;width:100%;position:sticky;top:var(--pxtop);z-index:5;height:var(--pxt);background:var(--cream);padding:0;justify-content:flex-start;align-items:center;text-align:center}
   .px-top{justify-content:center;color:var(--ink-2)}
   .px-top>span:first-child{display:none}
@@ -406,11 +408,11 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
   .px-meta>*:nth-child(-n+3){display:none}
   .px-meta p{color:var(--ink-2)}
   .px-right{display:block;width:100%;padding:0}
+  .px-right::after{content:"";display:block;height:36svh}
   .px-right figure{position:sticky;top:calc(var(--hh) + (100svh - var(--hh) - 200px - 8px - 46svh) / 2 + 208px);height:46svh;margin:0 0 40svh;background:var(--cream);box-shadow:none}
   html.js .px-right .wipe{clip-path:none;transition:none}
   html.js .px-right .wipe img{transform:none;transition:none}
   .px-name .ln{padding-inline:.12em;margin-inline:-.12em}
-  .px-right figure:last-child{margin-bottom:0}
   .px-right .ph{height:100%}
   .px-right img{height:100%;max-height:none}
   .px-right .mcap{display:none}
@@ -711,6 +713,7 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
 
   /* scroll loop */
   var st=$('#estudio'), chs=$$('.ch',st), ticks=$$('#stTick b'), stImg=$('#stImg');
+  (function(){ var pl=document.querySelector('.px-left'), pr=document.getElementById('pxRight'), px=document.getElementById('px'); function place(){ if(innerWidth<=900){ if(pl.parentNode!==pr) pr.insertBefore(pl, pr.firstChild) } else if(pl.parentNode!==px){ px.insertBefore(pl, pr) } } place(); addEventListener('resize', place) })();
   var pxIts=$$('#pxStage .px-it'), pxFigs=$$('#pxRight figure'), pxRail=$$('#pxRail i'), pxN=$('#pxN'), pxActive=0;
   var band=$('.band'), bandImg=$('#bandImg'), stC=0;
   function setPx(i){ if(i===pxActive)return; pxIts[pxActive].classList.remove('is-on'); pxRail[pxActive].classList.remove('on'); pxActive=i; pxIts[i].classList.add('is-on'); pxRail[i].classList.add('on'); pxN.textContent='0'+(i+1) }
