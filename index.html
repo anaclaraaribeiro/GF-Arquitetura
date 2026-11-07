@@ -270,6 +270,27 @@ html.js .wipe.on img{transform:scale(1)}
 .pq-body blockquote em{color:var(--wine)}
 .pq-body .mono{color:var(--ink-2)}
 
+/* quote as an editorial split spread */
+.pq2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,56px);min-height:min(92vh,900px)}
+.pq2-l{display:flex;flex-direction:column;justify-content:space-between;gap:48px;min-width:0}
+.pq2-top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+.pq2-mini{margin:0;width:clamp(150px,14vw,220px);aspect-ratio:4/5;overflow:hidden;background:var(--linen)}
+.pq2-mini img{width:100%;height:100%;object-fit:cover}
+.pq2-link{font-family:var(--f-mono);font-style:italic;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--wine);min-height:44px;display:inline-flex;align-items:center;transition:opacity .3s}
+.pq2-link:hover{opacity:.6}
+.pq2-q{margin:0;font-family:var(--f-disp);font-weight:400;text-transform:uppercase;font-size:clamp(40px,4.9vw,92px);line-height:.96;letter-spacing:-.01em;color:var(--wine)}
+.pq2-q em{font-style:italic}
+.pq2-sig{display:block;margin-top:26px;color:var(--ink-2)}
+.pq2-img{margin:0;position:relative;overflow:hidden;background:var(--linen);min-height:60vh}
+.pq2-img .wipe{position:absolute;inset:0}
+.pq2-img img{width:100%;height:100%;object-fit:cover}
+@media (max-width:900px){
+  .pq2{grid-template-columns:1fr;min-height:0;gap:36px}
+  .pq2-l{gap:56px}
+  .pq2-mini{width:44vw;max-width:200px}
+  .pq2-q{font-size:clamp(32px,9.4vw,52px)}
+  .pq2-img{min-height:0;height:68svh}
+}
 /* ---------- footer: the contact moment ---------- */
 .ft{background:var(--wine);color:var(--cream);position:relative;overflow:hidden}
 .fc{position:relative;display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:auto auto;column-gap:24px;padding-top:calc(var(--hh) + 7vh);padding-bottom:9vh}
@@ -614,12 +635,18 @@ html.js .fc-hl.on .ln:nth-child(2)>span{transition-delay:.12s}
 
 <!-- NAS PALAVRAS DO ESTÚDIO -->
 <section class="pqs wrap" aria-label="Nas palavras do estúdio">
-  <div class="pq">
-    <div class="pq-media"><div class="big wipe" data-cur="ver"><img src="assets/img/sombra.jpg" alt="Suíte com cabeceira em tom terroso, quadros de montanhas e luz indireta" loading="lazy"></div></div>
-    <div class="pq-body">
-      <blockquote class="rv">Transformamos casas em lares e negócios em <em>experiências.</em></blockquote>
-      <span class="mono">GF Arquitetura e Interiores</span>
+  <div class="pq2">
+    <div class="pq2-l">
+      <div class="pq2-top">
+        <figure class="pq2-mini" data-cur="ver"><img src="assets/img/arcos.jpg" alt="Galeria com colunas e arcos iluminada por pendentes" loading="lazy"></figure>
+        <a class="pq2-link" href="https://w.app/gfarquiteturaeinteriores" target="_blank" rel="noopener">(Agendar uma conversa)</a>
+      </div>
+      <div>
+        <blockquote class="pq2-q rv">Transformamos casas<br>em lares e negócios<br>em <em>experiências.</em></blockquote>
+        <span class="mono pq2-sig">GF Arquitetura e Interiores<br>Guarapuava, PR</span>
+      </div>
     </div>
+    <figure class="pq2-img" data-cur="ver"><div class="wipe"><img src="assets/img/sombra.jpg" alt="Suíte com cabeceira em tom terroso, quadros de montanhas e luz indireta" loading="lazy"></div></figure>
   </div>
 </section>
 
